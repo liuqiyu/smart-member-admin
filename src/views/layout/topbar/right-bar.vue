@@ -1,7 +1,7 @@
 <template>
   <div class="right-bar">
     <div class="tools">
-      <yus-theme-picker></yus-theme-picker>
+      <smart-theme-picker></smart-theme-picker>
       <span class="iconfont icon-quanping"
             @click="screenfull"></span>
     </div>

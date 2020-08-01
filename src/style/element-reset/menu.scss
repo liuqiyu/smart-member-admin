@@ -1,13 +1,13 @@
 @import "~@/style/variable";
 
-.yus-admin {
+.smart-admin {
   .el-scrollbar__bar.is-horizontal {
     display: none !important;
     background: red;
   }
 
   .hideMenu {
-    .yus-menu {
+    .smart-menu {
       width: 64px !important;
     }
 

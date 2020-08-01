@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="yus-dialog__body">
+    <div class="smart-dialog__body">
       <el-form :model="ruleForm"
                :rules="rules"
                ref="ruleForm"
@@ -28,7 +28,7 @@
         </el-form-item>
       </el-form>
     </div>
-    <div class="yus-dialog__footer">
+    <div class="smart-dialog__footer">
       <el-button @click="cancel">取消</el-button>
       <el-button type="primary"
                  @click="confirm">确认</el-button>

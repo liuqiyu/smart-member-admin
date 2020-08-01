@@ -17,9 +17,9 @@ console.log(routerModule)
 
 // 菜单排序
 const menuRouters = []
-Object.keys(menuSort).forEach(item => {
+menuSort.forEach(item => {
   routerModule.forEach(v => {
-    if (menuSort[item] === v.meta.title) {
+    if (item === v.meta.title) {
       menuRouters.push(v)
     }
   })

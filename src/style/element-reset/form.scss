@@ -1,5 +1,5 @@
-.yus-admin {
-  .yus-table-form {
+.smart-admin {
+  .smart-table-form {
     position: relative;
 
     &:before {
@@ -58,7 +58,7 @@
         flex-direction: row;
         align-items: center;
 
-        & > div:first-child {
+        &>div:first-child {
           width: 50%;
           flex: none;
         }

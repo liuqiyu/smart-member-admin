@@ -13,26 +13,16 @@ import countTo from 'vue-count-to'
 import directives from '../directives'
 // import http from './../utils/http'
 // 全局组件
-import YusQueryTable from './yus-query-table'
-import YusToolBar from './yus-tool-bar'
-import YusQueyForm from './yus-query-form'
-import YusTableList from './yus-query-table/yus-table-list'
-import YusDialog from './yus-dialog'
-import YusDetailsPage from './yus-details-page'
-import YusContentPage from './yus-content-page'
-import YusContentRow from './yus-content-row'
-import YusContentCell from './yus-content-cell'
-import YusActionBar from './yus-action-bar'
-import YusThemePicker from './yus-theme-picker'
-import YusButton from './yus-button'
-import formCreate from './form-create'
-import formItem from './form-create/form-item'
-import editTable from './edit-table'
+import SmartQueryTable from './smart-query-table'
+import SmartToolBar from './smart-tool-bar'
+import SmartQueyForm from './smart-query-form'
+import SmartTableList from './smart-query-table/smart-table-list'
+import SmartDialog from './smart-dialog'
+import SmartDetailsPage from './smart-details-page'
+import SmartThemePicker from './smart-theme-picker'
 
-const components = [YusQueryTable, YusToolBar, YusQueyForm,
-  YusTableList, YusDialog, YusDetailsPage,
-  YusContentPage, YusContentRow, YusContentCell,
-  YusActionBar, YusThemePicker, YusButton, formCreate, formItem, editTable
+const components = [SmartQueryTable, SmartToolBar, SmartQueyForm,
+  SmartTableList, SmartDialog, SmartDetailsPage, SmartThemePicker
 ]
 
 const setPrototype = () => {

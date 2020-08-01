@@ -16,7 +16,7 @@ function resolve (dir) {
   return path.join(__dirname, dir)
 }
 
-const name = defaultSettings.title || 'vue Admin Pro' // page title
+const name = defaultSettings.title || '会员管理系统' // page title
 
 const port = 9420 // dev port
 

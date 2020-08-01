@@ -1,3 +1,3 @@
 module.exports = {
-  title: 'Vue Admin Pro'
+  title: '会员管理系统'
 }

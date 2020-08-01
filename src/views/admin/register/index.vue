@@ -1,49 +1,69 @@
 <template>
-  <smart-content-page style="height: 100%">
+  <div style="height: 100%">
     <smart-query-table ref="queryTable"
                        :form-fields="formFields"
                        :tools="tools"
                        :tables="tables"></smart-query-table>
-  </smart-content-page>
+  </div>
 </template>
-
 <script>
 export default {
-  name: 'page-table',
+  name: 'member-list',
   data () {
     return {
       formFields: [
         {
           label: '姓名',
-          type: 'text',
           placeholder: '请输入姓名',
-          defaultValue: '刘',
-          columnName: 'username'
+          columnName: 'name'
         },
         {
           label: '昵称',
-          type: 'text',
           placeholder: '请输入昵称',
-          defaultValue: 0,
           columnName: 'nickname'
         },
         {
           label: '年龄',
-          type: 'text',
           placeholder: '请输入年龄',
           columnName: 'age'
         },
         {
           label: '性别',
-          type: 'text',
-          placeholder: '请输入性别',
-          columnName: 'gender'
+          type: 'select',
+          placeholder: '请选择性别',
+          columnName: 'select',
+          options: [
+            {
+              value: 0,
+              label: '全部'
+            },
+            {
+              value: 1,
+              label: '男'
+            },
+            {
+              value: 2,
+              label: '女'
+            }
+          ]
         },
+        // 下拉框
         {
-          label: '地址',
-          type: 'text',
-          placeholder: '请输入地址',
-          columnName: 'address'
+          label: '下拉框',
+          type: 'select',
+          placeholder: '请选择下拉框',
+          columnName: 'select1',
+          multiple: true,
+          options: [
+            {
+              value: 1,
+              label: '你好1'
+            },
+            {
+              value: 2,
+              label: '你好2'
+            }
+          ]
         }
       ],
       tools: [
@@ -66,37 +86,34 @@ export default {
             return !this.multipleSelection.length > 0
           },
           func: () => this.handleDel()
+        },
+        {
+          label: '弹出表格',
+          auth: 'deleteTable',
+          icon: 'iconfont icon-biaoge',
+          func: () => this.handleTable()
         }
       ],
       tables: {
         url: {
           type: 'POST',
-          method: '/getTable',
-          obj: {
-            username: 'username'
-          }
+          method: '/getTable'
         },
         options: {
           type: 'selection',
-          // page: true,
-          defaultSort: {
-            prop: 'name',
-            order: 'descending'
-          },
-          initHttp: true,
+          page: true,
           // 选中后操作
           selectionChange: row => {
             this.multipleSelection = row
             // console.log('选中', this.multipleSelection)
+            // if (row.length > 0)
           }
         },
         columns: [
           {
             label: '姓名',
             key: 'name',
-            width: '180',
-            sort: true,
-            copy: true
+            width: '180'
           },
           {
             label: '昵称',
@@ -106,8 +123,7 @@ export default {
           {
             label: '年龄',
             key: 'age',
-            width: '180',
-            sort: true
+            width: '180'
           },
           {
             label: '性别',
@@ -127,11 +143,12 @@ export default {
           options: [
             {
               label: '详情',
+              // icon: 'iconfont iconwenjian',
+              // type: 'icon', // icon 只是图标
               func: row => this.handleUpdate(row) // 回调
             },
             {
               label: '删除',
-              // auth: 'deleteTable1',
               // icon: 'iconfont iconwenjian',
               // type: 'icon', // icon 只是图标
               func: row => this.handleDel(row) // 回调
@@ -139,19 +156,24 @@ export default {
           ]
         }
       },
-      multipleSelection: []
+      multipleSelection: [],
+      dialogHeight: 'auto'
     }
   },
   methods: {
     handleUpdate (row) {
-      this.$router.push({
-        path: '/table/page/details/1'
-      })
+      this.dialogHeight = 'auto'
+      this.$set(this.dialogData, 'type', 'details')
+      this.$set(this.dialogData, 'label', '编辑')
+      this.$set(this.dialogData, 'data', row)
+      this.showDynamicDialog('detailsDialog', '详情', '400px')
     },
     handleAdd () {
-      this.$router.push({
-        path: '/table/page/add'
-      })
+      this.dialogHeight = 'auto'
+      this.$set(this.dialogData, 'type', 'add')
+      this.$set(this.dialogData, 'label', '新增')
+      this.$set(this.dialogData, 'data', {})
+      this.showDynamicDialog('detailsDialog', '新增', '400px')
     },
     handleDel (row) {
       this.$confirm('删除已选择数据?', '提示', {
@@ -168,6 +190,6 @@ export default {
   }
 }
 </script>
-prefetch
+
 <style scoped>
 </style>

@@ -24,25 +24,12 @@
 
     <user></user>
     <session></session>
-
-    <aa></aa>
-    <bb v-if="show"></bb>
-    <c v-if="show"></c>
-    <d v-if="show"></d>
   </div>
 </template>
 
 <script>
 import Session from './session'
 import User from './user'
-// import aa from './a'
-// import bb from './b'
-// import c from './c'
-// import d from './d'
-const aa = () => import(/* webpackChunkName: "a" */ './a')
-const bb = () => import(/* webpackChunkName: "b" */ './b')
-const c = () => import(/* webpackChunkName: "c" */ './c')
-const d = () => import(/* webpackChunkName: "d" */ './d')
 
 export default {
   name: 'dashboard',
@@ -80,15 +67,11 @@ export default {
   },
   components: {
     Session,
-    User,
-    aa,
-    bb,
-    c,
-    d
+    User
   },
   methods: {},
   mounted () {
-    var a = document.querySelector('.yus-content')
+    var a = document.querySelector('.smart-content')
     a.addEventListener('scroll', () => {
       console.log(123)
       this.show = true
@@ -99,7 +82,7 @@ export default {
 
 <style scoped lang="scss">
 .content-container {
-  padding: 30px !important;
+  padding: 10px !important;
   .console-wrapper {
     margin-bottom: 20px;
     .grid-content {

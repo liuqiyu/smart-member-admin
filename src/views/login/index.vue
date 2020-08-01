@@ -3,10 +3,10 @@
     <div class="login-content">
       <div class="content-box logo">
         <div class="img">
-          <img src="~@/assets/images/login-logo.png"
+          <img src="~@/assets/images/logo.png"
                alt="">
         </div>
-        <div class="title">通用型后台管理系统</div>
+        <div class="title">会员管理系统</div>
       </div>
       <div class="content-box form">
         <el-form ref="ruleForm"
@@ -114,10 +114,10 @@ export default {
       &.logo {
         // opacity: 0.65;
         background: rgba(5, 21, 84, 0.65);
-        padding-top: 90px;
+        padding-top: 120px;
         .img {
           margin: 0 auto;
-          width: 340px;
+          width: 120px;
           > img {
             width: 100%;
           }

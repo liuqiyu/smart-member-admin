@@ -4,7 +4,7 @@
       <img src="@/assets/images/logo.png"
            alt="">
       <h1 class="title">
-        Vue Admin Pro
+        会员管理系统
       </h1>
     </div>
     <right-bar></right-bar>
@@ -39,10 +39,10 @@ export default {
     font-size: 16px;
     // font-family: "幼圆";
     img {
-      width: 30px;
-      height: 30px;
+      width: 36px;
+      height: 36px;
       vertical-align: middle;
-      margin-right: 13px;
+      margin-right: 10px;
     }
     .title {
       display: inline-block;

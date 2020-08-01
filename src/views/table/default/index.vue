@@ -1,20 +1,20 @@
 <template>
-  <yus-content-page style="height: 100%">
-    <yus-query-table ref="queryTable"
-                     :form-fields="formFields"
-                     :tools="tools"
-                     :tables="tables"></yus-query-table>
+  <div style="height: 100%">
+    <smart-query-table ref="queryTable"
+                       :form-fields="formFields"
+                       :tools="tools"
+                       :tables="tables"></smart-query-table>
     <!--弹出框-->
-    <yus-dialog v-bind="dialogOption"
-                :view.sync="dialogOption.view"
-                :visible.sync="dialogOption.show">
+    <smart-dialog v-bind="dialogOption"
+                  :view.sync="dialogOption.view"
+                  :visible.sync="dialogOption.show">
       <component :is="dialogOption.view"
                  :style="{height: dialogHeight}"
                  :dialog-data="dialogData"
                  @close="closeDynamicDialog">
       </component>
-    </yus-dialog>
-  </yus-content-page>
+    </smart-dialog>
+  </div>
 </template>
 
 <script>

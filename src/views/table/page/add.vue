@@ -1,8 +1,8 @@
 <template>
-  <yus-content-page>
-    <yus-details-page v-loading="loading"
-                      :options="options"
-                      :tools="tools">
+  <smart-content-page>
+    <smart-details-page v-loading="loading"
+                        :options="options"
+                        :tools="tools">
       <el-form :model="ruleForm"
                :rules="rules"
                ref="ruleForm"
@@ -42,8 +42,8 @@
           </el-col>
         </el-row>
       </el-form>
-    </yus-details-page>
-  </yus-content-page>
+    </smart-details-page>
+  </smart-content-page>
 
 </template>
 

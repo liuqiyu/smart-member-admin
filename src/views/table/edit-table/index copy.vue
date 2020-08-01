@@ -6,11 +6,11 @@
  * @LastEditTime : 2019-12-30 10:41:30
  -->
 <template>
-  <yus-content-page style="height: 100%">
+  <smart-content-page style="height: 100%">
     <edit-table ref="queryTable"
                 :tables="tables">
     </edit-table>
-  </yus-content-page>
+  </smart-content-page>
 </template>
 
 <script>

@@ -1,14 +1,14 @@
 <template>
-  <div class="yus-layout">
-    <el-container class="yus-container">
-      <topbar class="yus-header"></topbar>
-      <el-container class="yus-body">
-        <div class="yus-menu">
+  <div class="smart-layout">
+    <el-container class="smart-container">
+      <topbar class="smart-header"></topbar>
+      <el-container class="smart-body">
+        <div class="smart-menu">
           <sidebar></sidebar>
         </div>
-        <el-main class="yus-main">
+        <el-main class="smart-main">
           <tagsView></tagsView>
-          <div class="yus-content">
+          <div class="smart-content">
             <keep-alive :include="cachedViews">
               <router-view></router-view>
             </keep-alive>
@@ -41,17 +41,17 @@ export default {
 
 <style scoped lang="scss">
 @import "~@/style/variable";
-.yus-layout {
+.smart-layout {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  .yus-container {
+  .smart-container {
     width: 100%;
     height: 100%;
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    .yus-header {
+    .smart-header {
       width: 100%;
       height: 50px !important;
       flex: none;
@@ -59,13 +59,13 @@ export default {
       z-index: 111;
       background-image: linear-gradient(-179deg, #225dde 0%, #4a86f0 100%);
     }
-    .yus-body {
+    .smart-body {
       flex: 1;
       display: flex;
       flex-direction: row;
       height: 100%;
     }
-    .yus-menu {
+    .smart-menu {
       position: relative;
       height: 100%;
       width: $sideBarWidth;
@@ -77,19 +77,19 @@ export default {
       flex-direction: column;
       z-index: 99;
     }
-    .yus-main {
+    .smart-main {
       flex: 1;
       padding: 0 !important;
       display: flex;
       flex-direction: column;
       overflow: hidden;
-      .yus-content {
+      .smart-content {
         position: relative;
         flex: 1;
         height: 100%;
         overflow-y: auto;
         background: #f1f5fa;
-        height: 100%;
+        padding: 10px;
       }
     }
   }

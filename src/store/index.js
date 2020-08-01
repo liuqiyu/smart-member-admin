@@ -27,7 +27,7 @@ export default new Vuex.Store({
   },
   mutations: {
     IS_COLLAPSE (state) {
-      document.querySelector('.yus-layout').classList.toggle('hideMenu')
+      document.querySelector('.smart-layout').classList.toggle('hideMenu')
       state.isCollapse = !state.isCollapse
     }
   },

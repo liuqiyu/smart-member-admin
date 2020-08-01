@@ -13,7 +13,7 @@ export default {
     path: 'default',
     name: 'default-table',
     component: () =>
-        import(/* webpackChunkName: "table" */ './../views/table/default'),
+      import(/* webpackChunkName: "table" */ './../views/table/default'),
     meta: {
       noCache: true,
       title: '表格'
@@ -23,7 +23,7 @@ export default {
     path: 'edit-table',
     name: 'edit-table',
     component: () =>
-        import(/* webpackChunkName: "table" */ './../views/table/edit-table'),
+      import(/* webpackChunkName: "table" */ './../views/table/edit-table'),
     meta: {
       activeMenu: '/table/page',
       noCache: true,
@@ -34,7 +34,7 @@ export default {
     path: 'page',
     name: 'page-table',
     component: () =>
-        import(/* webpackChunkName: "table" */ './../views/table/page'),
+      import(/* webpackChunkName: "table" */ './../views/table/page'),
     meta: {
       activeMenu: '/table/page',
       noCache: true,
@@ -46,7 +46,7 @@ export default {
     name: 'page-table-add',
     hidden: true,
     component: () =>
-        import(/* webpackChunkName: "table" */ './../views/table/page/add'),
+      import(/* webpackChunkName: "table" */ './../views/table/page/add'),
     meta: {
       activeMenu: '/table/page',
       title: '页面-新增'
@@ -57,7 +57,7 @@ export default {
     name: 'page-table-details',
     hidden: true,
     component: () =>
-        import(/* webpackChunkName: "table" */ './../views/table/page/details'),
+      import(/* webpackChunkName: "table" */ './../views/table/page/details'),
     meta: {
       activeMenu: '/table/page',
       title: '页面-详情'
@@ -67,7 +67,7 @@ export default {
     path: 'custom-header',
     name: 'custom-header-table',
     component: () =>
-        import(/* webpackChunkName: "table" */ './../views/table/custom-header'),
+      import(/* webpackChunkName: "table" */ './../views/table/custom-header'),
     meta: {
       noCache: true,
       title: '自定义表头'
