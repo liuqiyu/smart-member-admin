@@ -31,6 +31,10 @@
                        @click="submitForm">登录</el-button>
           </el-form-item>
         </el-form>
+        <div class="other">
+          <span class="register">注册</span>
+          <span class="forget-password">忘记密码？</span>
+        </div>
       </div>
     </div>
   </div>
@@ -133,6 +137,14 @@ export default {
       &.form {
         background: #ffffff;
         padding: 160px 60px;
+      }
+      .other {
+        display: flex;
+        justify-content: space-between;
+        .register {
+          &:hover {
+          }
+        }
       }
     }
   }

@@ -4,7 +4,7 @@ import Layout from './../views/layout'
 import store from './../store'
 import { getRoutes } from './../utils/router'
 import menuSort from './../utils/menu-sort'
-import login from './../views/login'
+import login from './../views/user/login'
 
 Vue.use(Router)
 
