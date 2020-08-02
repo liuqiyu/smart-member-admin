@@ -13,12 +13,11 @@ import 'babel-polyfill'
 import App from './App.vue'
 import router from './router/index'
 import store from './store/index'
-import VUI from './components'
+import SmartUi from './components'
 import './style/index.scss'
 import http from './utils/http'
 import * as filters from '@/utils/filter'
 import './permission'
-import './mock/index'
 // import * as api from './api'
 // console.log(api)
 
@@ -40,7 +39,7 @@ try {
 Vue.use(ElementUI, {
   size: 'mini'
 })
-Vue.use(VUI)
+Vue.use(SmartUi)
 
 Vue.prototype.$http = http
 // Vue.prototype.$api = api

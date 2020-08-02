@@ -1,20 +1,15 @@
 import http from './../../utils/http'
-import {
-  setSession,
-  removeSession,
-  getSession
-} from '@/utils/auth'
 
 const user = {
   namespaced: true,
   state: {
-    sessionID: getSession(),
-    userInfo: JSON.parse(localStorage.getItem('userInfo')) || {}
+    token: sessionStorage.getItem('token'),
+    userInfo: JSON.parse(sessionStorage.getItem('userInfo')) || {}
   },
   getters: {},
   mutations: {
-    SET_SESSIONID (state, value) {
-      state.sessionID = value
+    SET_TOKEN (state, value) {
+      state.token = value
     },
     SEET_USERINFO (state, value) {
       state.userInfo = value
@@ -26,15 +21,14 @@ const user = {
     }, formData) {
       return new Promise((resolve, reject) => {
         http
-          .post('/login', formData)
+          .post('/api/user/login', formData)
           .then(res => {
-            setSession(res.sessionID)
-            sessionStorage.setItem('userInfo', JSON.stringify(res.data))
-            commit('SET_SESSIONID', res.sessionID)
-            commit('SEET_USERINFO', res.data)
+            sessionStorage.setItem('token', res.token)
+            sessionStorage.setItem('userInfo', JSON.stringify(res.info))
+            commit('SET_TOKEN', res.token)
+            commit('SEET_USERINFO', res.info)
             resolve(res)
-          })
-          .catch(err => {
+          }).catch(err => {
             reject(err)
           })
       })
@@ -43,18 +37,11 @@ const user = {
       commit
     }) {
       return new Promise((resolve, reject) => {
-        http
-          .post('/logout')
-          .then(res => {
-            removeSession() // 清空session
-            sessionStorage.removeItem('userInfo')
-            commit('SET_SESSIONID', '')
-            commit('SEET_USERINFO', {})
-            resolve(res)
-          })
-          .catch(err => {
-            reject(err)
-          })
+        sessionStorage.removeItem('token')
+        sessionStorage.removeItem('userInfo')
+        commit('SET_TOKEN', '')
+        commit('SEET_USERINFO', {})
+        resolve()
       })
     }
   }

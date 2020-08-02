@@ -5,7 +5,7 @@ export default {
   name: 'Admin',
   showRoot: true,
   meta: {
-    icon: 'icon-biaoge',
+    icon: 'icon-huiyuan',
     title: '会员管理'
   },
   component: Layout,

@@ -1,9 +1,6 @@
 import NProgress from 'nprogress' // progress bar
 import 'nprogress/nprogress.css' // progress bar style
 import router from './router'
-import {
-  getSession
-} from '@/utils/auth'
 import getPageTitle from '@/utils/get-page-title'
 
 router.beforeEach((to, from, next) => {
@@ -12,7 +9,7 @@ router.beforeEach((to, from, next) => {
   // set page title
   document.title = getPageTitle(to.meta.title)
 
-  if (getSession()) {
+  if (sessionStorage.getItem('token')) {
     next()
   } else {
     if (to.path === '/login') {

@@ -11,7 +11,7 @@
     <el-dropdown trigger="click">
       <span class="el-dropdown-link">
         <span class="name">
-          刘岂宇
+          {{username}}
         </span>
         <i class="el-icon-caret-bottom el-icon--right"></i>
       </span>
@@ -28,13 +28,18 @@
 
 <script>
 import screenfull from 'screenfull'
-
+import { mapState } from 'vuex'
 export default {
   name: 'right-bar',
   data () {
     return {
       isFullscreen: false
     }
+  },
+  computed: {
+    ...mapState({
+      username: (state) => state.user.userInfo.username
+    })
   },
   mounted () {
     this.init()
