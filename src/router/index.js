@@ -4,7 +4,6 @@ import Layout from './../views/layout'
 import store from './../store'
 import { getRoutes } from './../utils/router'
 import menuSort from './../utils/menu-sort'
-import login from './../views/user/login'
 
 Vue.use(Router)
 
@@ -57,9 +56,19 @@ const routes = [
     path: '/login',
     name: 'login',
     meta: {
-      title: '登录页'
+      title: '登录页',
+      noLogin: false
     },
-    component: login
+    component: () => import(/* webpackChunkName: "login" */ './../views/user/login')
+  },
+  {
+    path: '/register',
+    name: 'register',
+    meta: {
+      title: '注册页',
+      noLogin: false
+    },
+    component: () => import(/* webpackChunkName: "register" */ './../views/user/register')
   },
   ...layoutRoutes,
   {

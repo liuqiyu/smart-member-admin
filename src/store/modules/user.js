@@ -23,10 +23,27 @@ const user = {
         http
           .post('/api/user/login', formData)
           .then(res => {
-            sessionStorage.setItem('token', res.token)
-            sessionStorage.setItem('userInfo', JSON.stringify(res.info))
-            commit('SET_TOKEN', res.token)
-            commit('SEET_USERINFO', res.info)
+            if (res) {
+              sessionStorage.setItem('token', res.token)
+              sessionStorage.setItem('userInfo', JSON.stringify(res.info))
+              commit('SET_TOKEN', res.token)
+              commit('SEET_USERINFO', res.info)
+              resolve(res)
+            } else {
+              resolve()
+            }
+          }).catch(err => {
+            reject(err)
+          })
+      })
+    },
+    register ({
+      commit
+    }, formData) {
+      return new Promise((resolve, reject) => {
+        http
+          .post('/api/user/register', formData)
+          .then(res => {
             resolve(res)
           }).catch(err => {
             reject(err)

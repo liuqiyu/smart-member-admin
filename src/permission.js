@@ -12,7 +12,7 @@ router.beforeEach((to, from, next) => {
   if (sessionStorage.getItem('token')) {
     next()
   } else {
-    if (to.path === '/login') {
+    if (!to.meta.noLogin) {
       next()
     } else {
       next(`/login?redirect=${to.path}`) // 否则全部重定向到登录页

@@ -32,8 +32,10 @@
           </el-form-item>
         </el-form>
         <div class="other">
-          <span class="register">注册</span>
-          <span class="forget-password">忘记密码？</span>
+          <span class="register"
+                @click="handleRegister">注册</span>
+          <span class="forget-password"
+                @click="handleForgetPassword">忘记密码？</span>
         </div>
       </div>
     </div>
@@ -69,6 +71,7 @@ export default {
     }
   },
   methods: {
+    // 登陆
     submitForm () {
       this.$refs['ruleForm'].validate(async (valid) => {
         if (valid) {
@@ -76,15 +79,25 @@ export default {
             username: this.formData.username,
             password: this.formData.password
           }).then(res => {
-            this.$message.success('登录成功！')
             this.$router.push({ path: this.redirect || '/' })
+            setTimeout(() => {
+              this.$message.success('登录成功')
+            })
           })
         } else {
           console.log('error submit!!')
           return false
         }
       })
-    }
+    },
+    // 注册
+    handleRegister () {
+      this.$router.push({
+        path: '/register'
+      })
+    },
+    // 忘记密码
+    handleForgetPassword () { }
   }
 }
 </script>

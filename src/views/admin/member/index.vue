@@ -37,9 +37,9 @@ export default {
       },
       formFields: [
         {
-          label: '姓名',
+          label: '用户名',
           placeholder: '请输入姓名',
-          columnName: 'name'
+          columnName: 'username'
         },
         {
           label: '昵称',
@@ -97,12 +97,6 @@ export default {
           func: () => this.$refs.queryTable.loadTable()
         },
         {
-          label: '新增',
-          auth: 'addTable',
-          icon: 'iconfont icon-xinzeng',
-          func: () => this.handleAdd()
-        },
-        {
           label: '删除',
           auth: 'deleteTable',
           icon: 'iconfont icon-shanchu',
@@ -110,18 +104,12 @@ export default {
             return !this.multipleSelection.length > 0
           },
           func: () => this.handleDel()
-        },
-        {
-          label: '弹出表格',
-          auth: 'deleteTable',
-          icon: 'iconfont icon-biaoge',
-          func: () => this.handleTable()
         }
       ],
       tables: {
         url: {
           type: 'POST',
-          method: '/getTable'
+          method: '/api/user/lists'
         },
         options: {
           type: 'selection',
@@ -136,12 +124,7 @@ export default {
         columns: [
           {
             label: '姓名',
-            key: 'name',
-            width: '180'
-          },
-          {
-            label: '昵称',
-            key: 'nickname',
+            key: 'username',
             width: '180'
           },
           {
@@ -155,8 +138,27 @@ export default {
             width: '180'
           },
           {
+            label: '省',
+            key: 'province',
+            width: '180'
+          },
+          {
+            label: '市',
+            key: 'city',
+            width: '180'
+          },
+          {
+            label: '区',
+            key: 'area',
+            width: '180'
+          },
+          {
             label: '地址',
             key: 'address'
+          },
+          {
+            label: '注册时间',
+            key: 'register_date'
           }
         ],
         operation: {

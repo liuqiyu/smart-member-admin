@@ -1,10 +1,7 @@
 import axios from 'axios'
-import {
-  Message
-} from 'element-ui'
-import {
-  host
-} from './../config'
+import store from '@/store'
+import { Message } from 'element-ui'
+import { host } from './../config'
 
 const service = axios.create({
   baseURL: host,
@@ -41,6 +38,13 @@ service.interceptors.request.use(
   config => {
     config.data = config.data || {}
 
+    const token = store.state.user.token
+
+    if (config.url !== '/api/user/login') {
+      if (token) {
+        config.headers.authorization = `token ${token}`
+      }
+    }
     // 防止重复提交
     if (config.method === 'post') {
       if (removeHttpPending(config, false)) {
@@ -61,12 +65,14 @@ service.interceptors.response.use(
 
     // 返回处理
     if (res.code !== 200) {
-      Message({
-        message: res.message,
-        type: 'error',
-        duration: 2500
-      })
-      return response
+      if (res.message && res.message.length > 0) {
+        Message({
+          message: res.message,
+          type: 'error',
+          duration: 2500
+        })
+      }
+      return null
     }
     return response.data.data
   },
